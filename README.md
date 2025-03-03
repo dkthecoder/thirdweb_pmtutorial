@@ -2,6 +2,18 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+This project is to understand, test and learn Preiciton markets and using ThirdWeb's tools to do it. This repo is in relation to the smart contract which is used to interact with it: 
+Guidence from the following video: https://www.youtube.com/watch?v=BHLIJnS5Ikw
+
+The proejct is to demonstract a simple precition market like Polymarket or Myriad. The simple market example is;
+- Question for prediciton
+- expirey of the prediciton
+- two options for prediciton
+
+specifically this project is a front-end (you could say) for the smart contract that interacts with the prediciton market smart contract
+
+## Run Project
+
 First, run the development server:
 
 ```bash
@@ -34,3 +46,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
