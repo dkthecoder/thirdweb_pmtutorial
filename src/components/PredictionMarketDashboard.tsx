@@ -3,6 +3,7 @@ import { Navbar } from "./navbar";
 import { predictionMarketContract } from "@/constants/contracts";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 import { MarketCardSkeleton } from "./skeletonCard";
+import MarketCard from "./marketCard";
 
 export default function PredictionMarketDashboard() {
     const { data: marketCount, isLoading: isLoadingMarketCount } = useReadContract({
@@ -38,7 +39,7 @@ export default function PredictionMarketDashboard() {
                                 <TabsContent value="active" className="mt-6">
                                     <div className="grid grid-col-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
                                         {Array.from({ length: Number(marketCount) }, (_, index) => (
-                                            <></>
+                                            <MarketCard key={index} index={index} filter="active" />
                                         ))}
                                     </div>
                                 </TabsContent>  
@@ -46,7 +47,7 @@ export default function PredictionMarketDashboard() {
                                 <TabsContent value="pending" className="mt-6">
                                     <div className="grid grid-col-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
                                         {Array.from({ length: Number(marketCount) }, (_, index) => (
-                                            <></>
+                                            <MarketCard key={index} index={index} filter="pending" />
                                         ))}
                                     </div>
                                 </TabsContent>  
@@ -54,7 +55,7 @@ export default function PredictionMarketDashboard() {
                                 <TabsContent value="resolved" className="mt-6">
                                     <div className="grid grid-col-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
                                         {Array.from({ length: Number(marketCount) }, (_, index) => (
-                                            <></>
+                                            <MarketCard key={index} index={index} filter="resolved" />
                                         ))}
                                     </div>
                                 </TabsContent>  
