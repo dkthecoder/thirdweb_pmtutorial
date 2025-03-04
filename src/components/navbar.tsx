@@ -13,13 +13,31 @@ export function Navbar() {
     const account = useActiveAccount();
     const [isClaiming, setIsClaiming] = useState(false);
 
+    const handleClaimTokens = async () => {
+        setIsClaiming(true);
+        try {
+            const resp = await fetch("/api/claimToken", {
+                method: "POST",
+                body: JSON.stringify({ address: account?.address }),
+            });
+
+            if (!resp.ok) { 
+                throw new Error("Failed to claim tokens");
+            }
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setIsClaiming(false);
+        }
+    };
+
     return (
         <div className="flex items-center justify-between mb-6">
             <h1 className="text-3xl font-bold">Simple Predicition Market</h1>
             <div className="flex items-center gap-2">
 
                 {account && (
-                    <button>
+                    <button onClick={handleClaimTokens} disabled={isClaiming} variant="outline">
                         {isClaiming ? (
                             <>
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
