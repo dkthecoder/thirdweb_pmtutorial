@@ -2,6 +2,7 @@ import { predictionMarketContract } from "@/constants/contracts";
 import { useReadContract } from "thirdweb/react";
 import { CardContent, CardHeader, CardTitle } from "./ui/card";
 import { MarketCardSkeleton } from "./skeletonCard";
+import { MarketProgress } from "./marketProgress";
 
 interface MarketCardProps {
     index: number;
@@ -95,8 +96,13 @@ export default function MarketCard({index, filter}: MarketCardProps) {
                 </CardHeader>
                 <CardContent>
                     {market && (
-                        // Market Resolved component
-                        <></>   
+                        // Market progress component
+                        <MarketProgress
+                            optionA={market.optionA}
+                            optionB={market.optionB}
+                            totalOptionAShares={market.totalOptionAShares}
+                            totalOptionBShares={market.totalOptionBShares}
+                        />  
                     )}
                     {new Date(Number(market?.endTime) * 1000) < new Date() && (
                         // Market Resolved Component}
